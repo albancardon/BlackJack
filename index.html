@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack</title>
+</head>
+<body>
+    <!--Titre de la page-->
+    <header>
+        <h1>BlackJack</h1> 
+    </header>
+
+    <!--Block central-->
+    <main>
+        <!--Block gauche-->
+        <section class="main__block-left">
+            <!--Image casino avec nos prénoms-->
+            <div class="block-left__img-casino">
+                <img src="assets/img/icone-jeu/ALBAN_SHIRLEY_SAMUEL-removebg-preview.png" alt="Logo casino avec les prénoms des concepteurs" class="img-casino">
+            <!--affichage de la mise-->
+                <div>
+                    <p id="aff-mise-gauche" class="js___aff-mise-gauche"> Mise <span class="startGame"></span></p>
+                </div>
+            </div>
+            <!--Blocks des jetons-->
+            <div class="block-left__block-jetons">
+                <div class=" container-img-all btn-all-visible">
+                    <img src="assets/img/icone-jeu/Jeton_1.png" alt="jeton de valeur 1" class="block-jetons block-jetons__jeton1">
+                    <div class="btn-all">
+                        <button type="button" id="subJeton1" class=" pointer"> - </button>
+                        <button type="button" id="addJeton1" class=" pointer"> + </button>
+                    </div>
+                </div>
+
+                <div class=" container-img-all btn-all-visible">
+                    <img src="assets/img/icone-jeu/Jeton_5.png" alt="jeton de valeur 5" class="block-jetons block-jetons__jeton5">
+                    <div class="btn-all">
+                        <button type="button" id="subJeton5" class=" pointer"> - </button>
+                        <button type="button" id="addJeton5" class=" pointer"> + </button>
+                    </div>
+                </div>
+
+                <div class=" container-img-all btn-all-visible">
+                    <img src="assets/img/icone-jeu/Jeton_10.png" alt="jeton de valeur 10" class="block-jetons block-jetons__jeton10">
+                    <div class="btn-all">
+                        <button type="button" id="subJeton10" class=" pointer"> - </button>
+                        <button type="button" id="addJeton10" class=" pointer"> + </button>
+                    </div>
+                </div>
+
+                <div class=" container-img-all btn-all-visible">
+                    <img src="assets/img/icone-jeu/Jeton_50.png" alt="jeton de valeur 50" class="block-jetons block-jetons__jeton50">
+                    <div class="btn-all">
+                        <button type="button" id="subJeton50" class=" pointer"> - </button>
+                        <button type="button" id="addJeton50" class=" pointer"> + </button>
+                    </div>
+                </div>
+
+                <div class=" container-img-all btn-all-visible">
+                <img src="assets/img/icone-jeu/Jeton_100.png" alt="jeton de valeur 100" class="block-jetons block-jetons__jeton100">
+                    <div class="btn-all">
+                        <button type="button" id="subJeton100" class=" pointer"> - </button>
+                        <button type="button" id="addJeton100" class=" pointer"> + </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Block central-->
+        <section class="main__block-central">
+            <!--Carte de la banque-->
+            <div class="block-central__bank-card">
+
+            </div>
+            <!--Icone commencer le jeu-->
+            <article id="js___box-btnstart" class="js___block-central__start-game pointer">
+                <div id="js___btnstart">
+                    <img src="assets/img/icone-jeu/Boton_2_Black.png" alt="icone jeton pour lancer le jeu" class="start-game">
+                </div>
+            </article>
+            <!--affichage de la mise-->
+            <div id="affiMiseCenter" class="js___block-central__Mise-masquer">
+                <p id="affichage-mise"> Mise <span class="startGame"></span></p>
+            </div>
+            <!--Carte du joueur-->
+            <div class="block-central__player-card">
+
+            </div>
+        </section >
+
+        <!--Block droite-->
+        <section class="main__block-right">
+            <div id="sabot" class="block-right__sabot">
+            </div>
+            <p id="compteCarte">
+
+            </p>
+            <div class="block-right__score">
+                <img src="assets/img/icone-jeu/score.png" alt="" class=" score score__sign">
+                <div id="score">
+                    <p id="score-player">0</p>
+                    <p id="score-banque">0</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--Block bas de page-->
+    <footer>
+        <section class="footer__player-account">
+            <p>Compte joueur : <span id="accPlayerStartGame"></span></p>
+        </section>
+        <section class="footer__btn-player">
+            <div class="btn">
+                <img src="assets/img/icone-jeu/hit (1).png" alt="bouton icone jouer" class="btn-player btn-player__hit pointer">
+                <p>HIT</p>
+            </div>
+            <div class="btn">
+                <img src="assets/img/icone-jeu/double (1).png" alt="bouton icone doubler" class="btn-player btn-player__double pointer">
+                <p>DOUBLE</p>
+            </div>
+            <div class="btn">
+                <img src="assets/img/icone-jeu/stay (1).png" alt="bouton icone rester" class="btn-player btn-player__stay pointer">
+                <p>STAY</p>
+            </div>
+        </section>
+    </footer>
+    <script src="assets/javascript/javascript.js" defer></script>
+</body>
+</html>

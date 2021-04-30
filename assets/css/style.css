@@ -1,0 +1,253 @@
+/**COLOR TO SET
+* *background-color : #561A1A (marron) = sol
+* *background-color : #198F45 (green) = table
+*/
+@font-face {
+    font-family: "jeullyta";
+    src: url(../fonts/Jeullyta.ttf);
+}
+
+/* commun*/
+    .pointer:hover{
+        cursor: pointer;
+    }
+
+/**! BODY **/
+body{
+    margin : 0 auto;
+    background-color: #561A1A ;
+}
+/**! MAIN**/
+    h1{
+    font-family: 'jeullyta';
+    font-size: 100px;
+    color: white;
+    margin: 0;
+    text-align: center;
+    }
+
+    main{
+        background-color: #198F45;
+        display: flex;
+        border: 5px solid black;
+        border-radius: 100px;
+        margin: 10px;
+        height: 600px;
+    }
+
+    /**MAIN BLOCK LEFT*/
+
+    .img-casino{
+        width: 350px;
+    }
+
+    .main__block-left{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 30%;
+        border-top-left-radius:100px ;
+        border-bottom-left-radius:100px ;
+    }
+
+    .js___aff-mise-gauche{
+        display: inline;
+    }
+
+    .js___aff-mise-gauche-masquer{
+        display: inline;
+        visibility: hidden;
+    }
+
+    .block-jetons{
+        width:60px;
+    }
+
+    .block-left__block-jetons{
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+    }
+
+    .btn-all{
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        display: none;
+    }
+
+    .container-img-all{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        margin-top: 23em;
+    }
+
+    .btn-all-visible:hover .btn-all{
+        display: flex;
+    }
+
+
+    .block-left__img-casino{
+        position: absolute;
+        margin-bottom: 8em;
+    }
+
+    /**MAIN BLOCK CENTRAL*/
+    .main__block-central{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+    }
+
+    .block-central__bank-card,.block-central__start-game,.block-central__player-card{
+        display: flex;
+    }
+
+    .card{
+        display: block;
+        width: 110px;
+        height: 150px;
+        margin: 15px;
+    }
+    .start-game{
+        width: 100px;
+    }
+
+    .js__block-central__start-game{
+        display: flex;
+    }
+
+    .js__block-central__start-game-masquer{
+        display: none;
+    }
+
+    .js___block-central__Mise{
+        visibility: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-image: url("../img/icone-jeu/Boton_2_Black-vide.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .js___block-central__Mise-masquer{
+        visibility: hidden;
+        display: none;
+    }
+
+    #affichage-mise{
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-family: 'jeullyta';
+        color: black;
+    }
+
+
+
+    /**BLOCK RIGHT*/
+    .main__block-right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items:center;
+        width: 30%;
+        border-top-right-radius:100px ;
+        border-bottom-right-radius:100px ;
+    }
+
+    .block-right__score{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .block-right__sabot{
+        height: 200px;
+        width:150px;
+        background-image: url("../img/icone-jeu/Dos-de-carte.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .block-right__sabot-vide{
+        height: 200px;
+        width:150px;
+        background-image: url("../img/icone-jeu/Cartevide.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .score{
+        width:125px;
+    }
+
+/**! FOOTER**/
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 63%;
+}
+
+.footer__player-account{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border:2px solid black;
+    border-radius: 30px;
+    margin-left: 80px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.footer__btn-player{
+    display: flex;
+    align-self: center;
+}
+
+.btn-player{
+    align-self: flex-end;
+    width: 100px;
+}
+
+p{
+    font-family: 'jeullyta';
+    color: whitesmoke;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    
+}
+
+#score{    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 150px;
+    color: black;
+    background-image: url("../img/icone-jeu/Groupier-Joueur.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#score-player, #score-banque {
+    color: black;
+}
+
+.btn{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 1em;
+}
