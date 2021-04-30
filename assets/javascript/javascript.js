@@ -1,5 +1,4 @@
-
-//consttante valeur carte
+//constante valeur carte
 
 var paquetBanque = [
     "AsPique", "AsTrefle", "AsCarreau", "AsCoeur", 
@@ -36,7 +35,6 @@ window.onload = melange();
 window.onload = moyennePoint ();
 window.onload = tirageDepart();
 
-
 //fonction mélangeant les cartes
 function melange(){
     let paquetNeuf=[
@@ -54,8 +52,6 @@ function melange(){
         paquetNeuf.splice(numCarte, 1);
     }
 }
-
-//console.log (pioche);
 
 //fonction des point obtenu avec la carte tirer
 function comptageDesPoints (carte){
@@ -152,7 +148,6 @@ function comptagePtCartesB(carte){
             nbCarteHaut = y - (nbCarteMillieu + nbCarteBas);
             moyenneHaut = valMoyenneTotaleHaute/nbCarteHaut;
         }else{
-            console.log("Juste moyenne general moyenne")
             for (x=0; x<nbCartePiocheB; x++){
                 temp = comptageDesPoints (paquetBanque[x]);
                 valTotalPt += temp;
@@ -176,26 +171,20 @@ function comptagePtCartesB(carte){
         let rand =Math.round(Math.random()*10);
         if (((scB+moy1)<resulScore) && ((scB+moy2)<resulScore) && ((scB+moy3) > 18) && probaVerif>28){
             count++;
-//            console.log("pioche B1 "+count);
             tirageB();
             return 0;
         }else if (((scB+moy1)<resulScore) && ((scB+moy2)<resulScore) && ((scB+moy3) > 18) && probaVerif>=20){
             if (rand>=numRand){
                 count++;
-//                console.log("pioche B2 "+count);
                 tirageB();
                 return 0;
             }
             else{
                 count++;
-//                console.log("break B3 "+count);
-//                console.log("                  Pas de pioche perdu au rand");
                 return 1;
             }
         }else if (((scB+moy1)<resulScore) && ((scB+moy2)<resulScore) && ((scB+moy3) > 18) && probaVerif<20){
             count++;
-//            console.log("break B4 "+count);
-//            console.log("                  Pas de pioche");
             return 1;
         }
     }
@@ -205,26 +194,20 @@ function comptagePtCartesB(carte){
         let rand =Math.round(Math.random()*10);
         if (((scB+moy1)<resulScore) && ((scB+moy2)<resulScore) && ((scB+moy3) > 18) && probaVerif>14){
             count++;
-//            console.log("pioche C1 "+count);
             tirageB();
             return 0;
         }else if (((scB+moy1)<resulScore) && ((scB+moy2)<resulScore) && ((scB+moy3) > 18) && probaVerif>=10){
             if (rand>=numRand){
                 count++;
-//                console.log("pioche C2 "+count);
                 tirageB();
                 return 0;
             }
             else{
                 count++;
-//                console.log("break C3 "+count);
-//                console.log("                  Pas de pioche perdu au rand");
                 return 1;
             }
         }else if (((scB+moy1)<resulScore) && ((scB+moy2)<resulScore) && ((scB+moy3) > 18) && probaVerif<10){
             count++;
-//            console.log("break C4 "+count);
-//            console.log("                  Pas de pioche");
             return 1;
         }
     }
@@ -234,47 +217,34 @@ function comptagePtCartesB(carte){
         let rand =Math.round(Math.random()*10);
         if (((scB+moy1) > resulScore) && ((scB+moy2) > resulScore) && ((scB+moy3)<18)){
             if (rand>8){
-//                console.log("pioche D1 "+count);
                 tirageB();
                 count++;
                 return 0;
             }
             else{
                 count++;
-//                console.log("break D2 "+count);
-//                console.log("                  Pas de pioche perdu au rand");
                 return 1;
             }
         }
     }
 
-//*/ modif
             //fonction de réaction de l'IA en fonction des probabilités
     function IAPioche(){
         do{
-            console.log ("");
-            console.log("scB "+ scB);
-            console.log ("                  Début choix pioche");
-            console.log ("");
     // si score banque >21
             if (scB>21){
-//                 console.log("La Banque a predu");
                 return;
             }
     // si score banque = 21
             else if (scB==21){
-//                 console.log("La Banque a gagné");
                 return;
             }
     // si score banque > 18
             else if (scB>18){
-//                 console.log("break 1");
-//                 console.log("                  Pas de pioche scb trop haut");
                 return;
             }
     // si score joueur = 18 = 19 ou = 20
             else if (scJ==18 || scJ==19 || scJ==20){
-//                 console.log("pioche A1");
                 tirageB();
                 return;
             }
@@ -306,32 +276,25 @@ function comptagePtCartesB(carte){
 
     // Si tous les scores + moyenne <  21
         if (((scB+moyenneBas)<21) && ((scB+moyenneMillieu)<21) && ((scB+moyenneHaut)<21)){
-//             console.log("pioche L1");
             tirageB();
             count++;
         }
     // Si tous les scores <  16
         else if ((scB+moyenneGeneral)<18){
-//             console.log("pioche M1");
             tirageB();
             count++;
         }
         else{
-//             console.log("break Z1");
-//             console.log("                  Pas de pioche fin code");
             count++;
             return;
         }
         }while(scB<16);
     // Si tous les scores <  15
         if (scB<15 && count<3){
-//             console.log("   Recommence");
             IAPioche();
-//             console.log("count vaut "+count);
         }
     }
-
-                //fin de L'IA
+//fin de L'IA
 
 // Fonction  de vérification si il y a deja un as de pioché pour la banque ou le joueur
 function verifAs(tab){
@@ -341,29 +304,24 @@ function verifAs(tab){
         }
     };
 }
+
 // Fonction valeur de l'As
     // Pour le joueur
 function valAsJ(card, tab){
     let carteAs = ((card=="AsPique") || (card=="AsTrefle") || (card=="AsCarreau") || (card=="AsCoeur"));
     let scTemp = 0;
-//     console.log ("");
-//     console.log("card dans valAs vaut "+card);
-//     console.log ("");
     if(carteAs && (!verifAs(tab) || verifAs(tab)==undefined) && tab.length<2 && faitJ1==false && faitJ2==false){
         scTemp = 10;
-//         console.log("           add AS vaut " + (scTemp));
         faitJ1 = true;
         return scTemp;
     }
     else if (carteAs && verifAs(tab) && tab.length<2 && faitJ1==true && faitJ2==false){
         scTemp = 0;
-//         console.log("           less AS vaut " + (scTemp));
         faitJ2 = true;
         return scTemp;        
     }
     else if (verifAs(tab) && faitJ1==true && tab.length>=2 && faitJ2==false){
         scTemp = -10;
-//         console.log("           less AS vaut " + (scTemp));
         faitJ2 = true;
         return scTemp;        
     }
@@ -371,28 +329,23 @@ function valAsJ(card, tab){
         return scTemp;   
     }
 }
+
     // Pour la banque
 function valAsB(card, tab){
     let carteAs = ((card=="AsPique") || (card=="AsTrefle") || (card=="AsCarreau") || (card=="AsCoeur"));
     let scTemp = 0;
-//     console.log ("");
-//     console.log("card dans valAs vaut "+card);
-//     console.log ("");
     if(carteAs && (!verifAs(tab) || verifAs(tab)==undefined) && tab.length<2 && faitB1==false && faitB2==false){
         scTemp = 10;
-//         console.log("           add AS vaut " + (scTemp));
         faitB1 = true;
         return scTemp;
     }
     else if (carteAs && verifAs(tab) && tab.length<2 && faitB1==true && faitB2==false){
         scTemp = 0;
-//         console.log("           less AS vaut " + (scTemp));
         faitB2 = true;
         return scTemp;        
     }
     else if (verifAs(tab) && faitB1==true && tab.length>=2 && faitB2==false){
         scTemp = -10;
-//         console.log("           less AS vaut " + (scTemp));
         faitB2 = true;
         return scTemp;        
     }
@@ -400,8 +353,6 @@ function valAsB(card, tab){
         return scTemp;   
     }
 }
-
-
 
 var btnStart = document.getElementById("js___btnstart");
 var affMiseGauche = document.getElementById("aff-mise-gauche");
@@ -412,7 +363,6 @@ var btnStay = document.getElementsByClassName("btn-player__stay")[0];
 
 btnStay.addEventListener("click",tourBanque);
 btnStart.addEventListener("click",affichageMise);
-
 
 function affichageMise (){
             affMiseGauche.classList.toggle("js___aff-mise-gauche");
@@ -426,52 +376,39 @@ function affichageMise (){
     }
 }
 
-
-//*/ modif
 // Tirage de départ
 function tirageDepart() {
-    console.log("           Tirage joueur ");
     verifSabot();
     for (y=0; y<2; y++){
         verifSabot();
         min = Math.ceil(0);
         max = Math.floor(pioche.length-1);
-//        console.log("max est " + max);
         var numCartePiocher = Math.floor(Math.random() * (max - min)) + min;
         var carte =pioche[numCartePiocher];
-        console.log("carteJ est " + carte);
         scJ = scJ+valAsJ(carte, tabPiocheJ);
         tabPiocheJ.push (carte);
         comptagePtCartesB(carte);
         piocheJ = piocheJ +" " + carte;
         scJ = scJ+comptageDesPoints(carte);
-        pioche.splice(numCartePiocher, 1); /////////// modif importante
-        console.log("pioche "+pioche);
-        console.log("pt Joueur "+scJ);
-        verifSabot(); /////////// modif importante
+        pioche.splice(numCartePiocher, 1);
+        verifSabot();
         moyennePoint ();
-        //MODIFICATION//*************************** */
         appearanceCardPlayer(carte);
     }
-    console.log ("");
-    console.log("       Tirage Banque ");
 
-    //pioche=[];// a enlever test pour pioche vide
     verifSabot();
     min = Math.ceil(0);
     max = Math.floor(pioche.length-1);
     var numCartePiocher = Math.floor(Math.random() * (max - min)) + min;
-    var carte = pioche[numCartePiocher]; /// modif a ajouter importnte 
-    console.log("carteB est " + carte);
+    var carte = pioche[numCartePiocher];
     scB = scB+valAsB(carte, tabPiocheB);
     tabPiocheB.push(carte);
     comptagePtCartesB(carte);
     piocheB = piocheB +" " +  carte;
     scB = scB+comptageDesPoints(carte);
     pioche.splice(numCartePiocher, 1);
-    verifSabot(); /////////// modif importante
+    verifSabot();
     moyennePoint ();
-    //MODIFICATION//*************************** */
     appearanceCardBank(carte);
 }
 
@@ -479,33 +416,24 @@ var btnHit = document.getElementsByClassName("btn-player__hit")[0];
 
 btnHit.addEventListener('click',tirageJ);
 
-//*/ modif
 //tirage du joueur
 function tirageJ() {
-    console.log("Joueur tire");
     verifSabot();
     min = Math.ceil(0);
     max = Math.floor(pioche.length-1);
     var numCartePiocher = Math.floor(Math.random() * (max - min)) + min;
     var carte =pioche[numCartePiocher];
-    console.log("Le jouer a piocher " + carte);
     scB = scB+valAsB(carte, tabPiocheB);
     tabPiocheB.push (carte);
     comptagePtCartesB(carte);
     piocheB = piocheB +" " +  carte;
     scB = scB+comptageDesPoints(carte);
     pioche.splice(numCartePiocher, 1);
-    console.log("Le score du joueur scJ est "+ scJ);
-    verifSabot(); /////////// modif importante
+    verifSabot();
     moyennePoint ();
-    //MODIFICATION//*************************** */
     appearanceCardPlayer(carte);
 }
 
-
-
-
-//*/ modif
 //tirage de la banque
 function tirageB() {
     verifSabot();
@@ -513,30 +441,21 @@ function tirageB() {
     max = Math.floor(pioche.length-1);
     var numCartePiocher = Math.floor(Math.random() * (max - min)) + min;
     var carte =pioche[numCartePiocher];
-    console.log("La banque a piocher " + carte);
     scB = scB+valAsB(carte, tabPiocheB);
     tabPiocheB.push (carte);
     comptagePtCartesB(carte);
     piocheB = piocheB +" " +  carte;
     scB = scB+comptageDesPoints(carte);
     pioche.splice(numCartePiocher, 1);
-    console.log("Le score de la banque scB est "+ scB);
-    //console.log(tabPiocheB);
     verifSabot();
     moyennePoint ();
-    //MODIFICATION//*************************** */
     appearanceCardBank(carte);
     IAPioche();
 }
 
-
-//*/Modif
 //fonction vérifier qu'il reste des cartes dans le sabot
 function verifSabot(){
     if (pioche.length == 0){
-        console.log("               nouveau mélange");
-        console.log("pioche"+pioche);
-        console.log("");
         melange();
         paquetBanque = [
             "AsPique", "AsTrefle", "AsCarreau", "AsCoeur", 
@@ -566,14 +485,9 @@ function apparenceSabot(){
         sabot.classList.toggle("block-right__sabot-vide");
 }
 
-//ajout fonction mise
-console.log("   Début du script");
-
 //*Déclaration des variables
 var accountPlayer = 1000;
-console.log("Crédit joueur " + accountPlayer);
 var mise = 0;
-//var updateAccount = 0;
 
 //*Variable test pour fonction WIN
 var winPlayer = false;
@@ -585,15 +499,10 @@ var hasBeenCalled = false;
 
 //*Déclaration constante des jetons
 const jeton1 = 1;
-//console.log(jeton1);
 const jeton5 = 5;
-//console.log(jeton5);
 const jeton10 = 10;
-//console.log(jeton10);
 const jeton50 = 50;
-//console.log(jeton50);
 const jeton100 = 100;
-//console.log(jeton100);
 
 //*Déclaration des élements du DOM
 //Jeton 1
@@ -614,10 +523,8 @@ const jeton100 = 100;
 
 //*Affichage des valeurs
 var account = document.getElementById('accPlayerStartGame');
-//console.log(account);
 var start = document.getElementsByClassName('startGame')[0];
 var start1 = document.getElementsByClassName('startGame')[1];
-//console.log(start);
 
 function compteJ(){
     //Mise à zero des valeurs mise et compte
@@ -654,8 +561,6 @@ function plus(jeton){
         if(mise + jeton <= accountPlayer){
             mise = mise + jeton;
             updateAccount = accountPlayer - mise;
-            //console.log("Valeur de la mise : " + mise);
-            //console.log("Compte joueur à jour add mise: " + updateAccount);
             account.innerHTML = updateAccount;
             start.innerHTML = mise;
             start1.innerHTML = mise;
@@ -675,8 +580,6 @@ function moins(jeton){
         if(mise-jeton >= 0){
             mise = mise - jeton;
             updateAccount = accountPlayer - mise;
-            //console.log("Valeur de la mise : " + mise);
-            //console.log("Compte joueur à jour sub mise: " + updateAccount);
             account.innerHTML = updateAccount;
             start.innerHTML = mise;
             start1.innerHTML = mise;
@@ -691,7 +594,6 @@ function moins(jeton){
 
 //* Retour des gains au joueurs
 
-//*/ modif
 var scorePlayer = 0;
 var scoreBanque = 0;
 var scorePlayerAffichage= document.getElementById("score-player");
@@ -699,25 +601,18 @@ var scoreBanqueAffichage= document.getElementById("score-banque");
 
 //Fonction victoire
 function win(){
-    console.log("Entrée fonction WIN")
     if (scJ==scB){
         exAequo = true;
-        console.log("Match nul entre le Joueur et la Banque");
     }
     else if((scJ==21) || scB>21 || (scJ<21 && scJ>scB)){
         winPlayer = true;
         scorePlayer++;
-        console.log("Victoire de Joueur");
     }
     else if((scB==21) || scJ>21 || (scB<21 && scB>scJ)){
         winBank = true;
         scoreBanque++;
-        console.log("Victoire de Banque");
     }
 }
-console.log("scJ = "+scJ);
-console.log("scB = "+scB);
-
 
 //*Bouton doubler
 
@@ -732,12 +627,10 @@ function doubleMise(){
         updateAccount = updateAccount - miseValue;
         //Multiplie la mise du joueur par 2
         miseValue = mise * 2;
-
         //Affichage du nouveau compte et des nouvelles mises
         start.innerHTML = miseValue;
         start1.innerHTML = miseValue;
         account.innerHTML = updateAccount;
-        //console.log(accountSubDouble);
         hasBeenCalled = true;
     }else{
         return miseValue;
@@ -745,43 +638,27 @@ function doubleMise(){
 }
 
 function retourGain(){
-    console.log("Retour gain");
-
     if(hasBeenCalled == true){
         miseReturn =  miseValue;
     } else {
         miseReturn = plus();
     }
-    console.log(miseReturn);
-    console.log(updateAccount); 
-    console.log(accountPlayer);
-
     if(winPlayer == true){
         updateAccount += miseReturn * 2;
-        console.log("Compte J aprés retour gain " + updateAccount);
         account.innerHTML = updateAccount;
     } else if ( exAequo == true){
         updateAccount += miseReturn;
-        console.log("Compte J aprés retour gain " + updateAccount);
         account.innerHTML = updateAccount;
     }else if (winBank== true){
         updateAccount - miseReturn;
-        console.log("Compte J aprés retour gain " + updateAccount);
         account.innerHTML = updateAccount;
     }
-
     accountPlayer = updateAccount;
-    console.log(accountPlayer);
 }
 
 function tourBanque(){
     if(mise != 0){
         tirageB();
-        console.log ("                  Résultat");
-        console.log ("Le joueur a tiré : " + piocheJ + " et la banque a tiré " + piocheB);
-        console.log ("le score du joueur est : " + scJ);
-        console.log ("le score de la banque est : " + scB);
-        console.log ("");
         win();
         retourGain()
         scorePlayerAffichage.innerHTML = scorePlayer;
@@ -792,55 +669,32 @@ function tourBanque(){
         piocheJ = "";
         tabPiocheB = [];
         tabPiocheJ = [];
-        console.log("");
-        console.log("Nouvelle partie");
-        console.log("Tour joueur");
-        console.log("");
         mise = 0;
         start.innerHTML = mise;
-        console.log("       affichage");
         affichageMise ();
-        console.log("");
         deleteCard();
         tirageDepart();
     }
 }
 
 function appearanceCardBank(carte) {
-    var count =0
     let container = document.getElementsByClassName("block-central__bank-card")[0];
-
     let divBankCard = document.createElement("div");
-
-    divBankCard.setAttribute("class", "card cardB")
-
+    divBankCard.setAttribute("class", "card")
     divBankCard.style.backgroundImage = "url('assets/img/carte/" + carte + ".png')";
     divBankCard.style.backgroundSize = "100%";
     divBankCard.style.backgroundRepeat = "no-repeat";
-
     container.appendChild(divBankCard);
-    count++
 }
 
-//MODIFICATION//*************************** */
-
 function appearanceCardPlayer(carte) {
-    var counter =0
-
     let container = document.getElementsByClassName("block-central__player-card")[0];
-
     let divPlayerCard = document.createElement("div");
-
     divPlayerCard.setAttribute("class", "card")
-    divPlayerCard.setAttribute("id", "cardP"+counter)
-
     divPlayerCard.style.backgroundImage = "url('assets/img/carte/" + carte + ".png')";
     divPlayerCard.style.backgroundSize = "100%";
     divPlayerCard.style.backgroundRepeat = "no-repeat";
-
     container.appendChild(divPlayerCard);
-    counter++
-
 }
 
 function deleteCard(){
