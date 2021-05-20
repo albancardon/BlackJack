@@ -357,23 +357,32 @@ function valAsB(card, tab){
 var btnStart = document.getElementById("js___btnstart");
 var affMiseGauche = document.getElementById("aff-mise-gauche");
 var affMiseCentre = document.getElementById("affiMiseCenter");
+var affNeWgameCentre = document.getElementById("affiNeWgameCenter");
 var boxBtnStart = document.getElementById("js___box-btnstart");
 var containerImgAll = document.getElementsByClassName("container-img-all");
 var btnStay = document.getElementsByClassName("btn-player__stay")[0];
+var btnFooter = document.getElementsByClassName("footer__btn-player")[0];
 
 btnStay.addEventListener("click",tourBanque);
-btnStart.addEventListener("click",affichageMise);
+btnStart.addEventListener("click",()=> { if (mise>0) affichageMise()});
 
 function affichageMise (){
-            affMiseGauche.classList.toggle("js___aff-mise-gauche");
-        affMiseGauche.classList.toggle("js___aff-mise-gauche-masquer");
-        affMiseCentre.classList.toggle("js___block-central__Mise-masquer");
-        affMiseCentre.classList.toggle("js___block-central__Mise");
-        boxBtnStart.classList.toggle("js__block-central__start-game");
-        boxBtnStart.classList.toggle("js__block-central__start-game-masquer");
-        for (i=0; i<containerImgAll.length;i++){
-            containerImgAll[i].classList.toggle("btn-all-visible");
+    affMiseGauche.classList.toggle("js___aff-mise-gauche");
+    affMiseGauche.classList.toggle("js___aff-mise-gauche-masquer");
+    affMiseCentre.classList.toggle("js___block-central__Mise-masquer");
+    affMiseCentre.classList.toggle("js___block-central__Mise");
+    boxBtnStart.classList.toggle("js__block-visible");
+    boxBtnStart.classList.toggle("js__block-masquer");
+    btnFooter.classList.toggle("js__block-visible");
+    btnFooter.classList.toggle("js__block-masquer");
+    for (i=0; i<containerImgAll.length;i++){
+        containerImgAll[i].classList.toggle("btn-all-visible");
     }
+}
+function affichageFinpartie() {
+    affMiseCentre.classList.toggle("js___block-central__Mise-masquer");
+    affNeWgameCentre.classList.toggle("js___block-central__Mise-masquer");
+    affNeWgameCentre.classList.toggle("js___block-central__Mise");    
 }
 
 // Tirage de départ
@@ -663,18 +672,25 @@ function tourBanque(){
         retourGain()
         scorePlayerAffichage.innerHTML = scorePlayer;
         scoreBanqueAffichage.innerHTML = scoreBanque;
-        scB = 0;
-        scJ = 0;
-        piocheB = "";
-        piocheJ = "";
-        tabPiocheB = [];
-        tabPiocheJ = [];
-        mise = 0;
-        start.innerHTML = mise;
-        affichageMise ();
-        deleteCard();
-        tirageDepart();
+        affichageFinpartie();
     }
+}
+
+affNeWgameCentre.addEventListener("click",finDeGame)
+
+function finDeGame (){
+    scB = 0;
+    scJ = 0;
+    piocheB = "";
+    piocheJ = "";
+    tabPiocheB = [];
+    tabPiocheJ = [];
+    mise = 0;
+    start.innerHTML = mise;
+    affichageFinpartie();
+    affichageMise ();
+    deleteCard();
+    tirageDepart();
 }
 
 function appearanceCardBank(carte) {

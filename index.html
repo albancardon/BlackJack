@@ -76,14 +76,17 @@
 
             </div>
             <!--Icone commencer le jeu-->
-            <article id="js___box-btnstart" class="js___block-central__start-game pointer">
+            <article id="js___box-btnstart" class="js__block-visible pointer">
                 <div id="js___btnstart">
                     <img src="assets/img/icone-jeu/Boton_2_Black.png" alt="icone jeton pour lancer le jeu" class="start-game">
                 </div>
             </article>
             <!--affichage de la mise-->
             <div id="affiMiseCenter" class="js___block-central__Mise-masquer">
-                <p id="affichage-mise"> Mise <span class="startGame"></span></p>
+                <p class="affichage-btn-centre"> Mise <span class="startGame"></span></p>
+            </div>
+            <div id="affiNeWgameCenter" class="js___block-central__Mise-masquer pointer">
+                <p class="affichage-btn-centre">New game</p>
             </div>
             <!--Carte du joueur-->
             <div class="block-central__player-card">
@@ -113,7 +116,7 @@
         <section class="footer__player-account">
             <p>Compte joueur : <span id="accPlayerStartGame"></span></p>
         </section>
-        <section class="footer__btn-player">
+        <section class="footer__btn-player js__block-masquer">
             <div class="btn">
                 <img src="assets/img/icone-jeu/hit (1).png" alt="bouton icone jouer" class="btn-player btn-player__hit pointer">
                 <p>HIT</p>

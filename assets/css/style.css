@@ -120,11 +120,11 @@ body{
         width: 100px;
     }
 
-    .js__block-central__start-game{
+    .js__block-visible{
         display: flex;
     }
 
-    .js__block-central__start-game-masquer{
+    .js__block-masquer{
         display: none;
     }
 
@@ -146,7 +146,7 @@ body{
         display: none;
     }
 
-    #affichage-mise{
+    .affichage-btn-centre{
         margin-bottom: 15px;
         font-size: 20px;
         font-family: 'jeullyta';
@@ -213,7 +213,6 @@ footer{
 }
 
 .footer__btn-player{
-    display: flex;
     align-self: center;
 }
 
